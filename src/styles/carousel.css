@@ -1,0 +1,3 @@
+.carousel-cont > :first-child {
+  display: flex;
+}
