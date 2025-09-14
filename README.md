@@ -1,4 +1,5 @@
-# webpack-template
+# Simple image carousel
+- The odin project assignment
 
   🧱 Tech Stack & Tools<br>
 <ul>
