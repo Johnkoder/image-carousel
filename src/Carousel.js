@@ -3,7 +3,7 @@ import CarouselLogic from './CarouselLogic.js';
 
 export default class Carousel {
   constructor(imageList) {
-    this.logic = CarouselLogic(imageList);
+    this.logic = new CarouselLogic(imageList);
     this.carouselCont = document.querySelector('.carousel-cont');
     this.previousBtn = this.carouselCont.querySelector('.previous-btn');
     this.nextBtn = this.carouselCont.querySelector('.next-btn');
@@ -11,19 +11,20 @@ export default class Carousel {
   }
 
   init() {
-    //this.handleEvents('click', this.previousBtn, this.foo);
+    this.handleEvent('click', this.previousBtn, this.handlePreviousBtn);
+    this.handleEvent('click', this.nextBtn, this.handleNextBtn);
   }
 
-  handlePreviousBtn() {
-    return;
-  }
+  handlePreviousBtn = () => {
+    console.log(this.logic.previous());
+  };
 
-  handleNextBtn() {
-    return;
-  }
+  handleNextBtn = () => {
+    console.log(this.logic.next());
+  };
 
   // helper
-  handleEvents(type, el, callback) {
+  handleEvent(type, el, callback) {
     el.addEventListener(type, () => {
       callback();
     });
