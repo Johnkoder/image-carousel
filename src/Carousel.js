@@ -14,44 +14,67 @@ export default class Carousel {
   }
 
   init() {
-    this.injectImageToFrame(this.logic.getInitialImg());
+    this.injectImageToFrame(
+      this.logic.getImageList[this.logic.getInitialImgIdx()]
+    );
     this.renderAllDots();
     this.handleEvent('click', this.previousBtn, this.handlePreviousBtn);
     this.handleEvent('click', this.nextBtn, this.handleNextBtn);
   }
 
   handlePreviousBtn = () => {
-    const chosenImg = this.logic.getPreviousImg();
-    this.injectImageToFrame(chosenImg);
+    const imageList = this.logic.getImageList;
+    const idx = this.logic.getPreviousImgIdx();
+    this.injectImageToFrame(imageList[idx]);
+    this.renderAllDots();
   };
 
   handleNextBtn = () => {
-    const chosenImg = this.logic.getNextImg();
-    this.injectImageToFrame(chosenImg);
+    const imageList = this.logic.getImageList;
+    const idx = this.logic.getNextImgIdx();
+    this.injectImageToFrame(imageList[idx]);
+    this.renderAllDots();
   };
 
   renderAllDots() {
+    this.removeChildren(this.navDots);
     this.logic.getImageList.forEach((_, i) => {
       const newDot = document.createElement('span');
       newDot.dataset.id = i;
       newDot.className = 'dot';
+
+      if (this.logic.getSelected === i) {
+        newDot.classList.add('selected');
+      }
+
       this.handleEvent('click', newDot, this.handleDot);
       this.navDots.append(newDot);
     });
   }
 
-  handleDot = () => {
-    console.log('HI!');
+  handleDot = (e) => {
+    const imageList = this.logic.getImageList;
+    const idx = e.target.dataset.id;
+
+    this.logic.setSelected = Number(idx);
+    this.injectImageToFrame(imageList[idx]);
+    this.renderAllDots();
   };
 
   // helper
   handleEvent(type, el, callback) {
-    el.addEventListener(type, () => {
-      callback();
+    el.addEventListener(type, (e) => {
+      callback(e);
     });
   }
 
   injectImageToFrame(chosenImg) {
     this.carouselImg.src = chosenImg;
+  }
+
+  removeChildren(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.lastChild);
+    }
   }
 }

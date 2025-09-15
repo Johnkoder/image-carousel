@@ -4,31 +4,39 @@ export default class CarouselLogic {
     this.selected = 0;
   }
 
+  set setSelected(selected) {
+    this.selected = selected;
+  }
+
   get getImageList() {
     return this.imageList;
   }
 
-  getNextImg() {
+  get getSelected() {
+    return this.selected;
+  }
+
+  getNextImgIdx() {
     this.selected++;
     if (this.selected >= this.imageList.length) {
       this.selected = 0;
     }
-    return this.imageList[this.selected];
+    return this.selected;
   }
 
-  getPreviousImg() {
+  getPreviousImgIdx() {
     this.selected--;
     if (this.selected < 0) {
       this.selected = this.imageList.length - 1;
     }
-    return this.imageList[this.selected];
+    return this.selected;
   }
 
-  getInitialImg() {
-    return this.imageList[0];
+  getInitialImgIdx() {
+    return 0;
   }
   //TODO: do this
-  getChosenImg() {
+  getChosenImgIdx() {
     return;
   }
 }
