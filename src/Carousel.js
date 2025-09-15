@@ -20,6 +20,7 @@ export default class Carousel {
     this.renderAllDots();
     this.handleEvent('click', this.previousBtn, this.handlePreviousBtn);
     this.handleEvent('click', this.nextBtn, this.handleNextBtn);
+    setInterval(this.handleNextBtn, 5000);
   }
 
   handlePreviousBtn = () => {
