@@ -2,9 +2,9 @@ import './styles/carousel.css';
 import CarouselLogic from './CarouselLogic.js';
 
 export default class Carousel {
-  constructor(imageList) {
+  constructor(el, imageList) {
     this.logic = new CarouselLogic(imageList);
-    this.carouselCont = document.querySelector('.carousel-cont');
+    this.carouselCont = el;
     this.previousBtn = this.carouselCont.querySelector('.previous-btn');
     this.nextBtn = this.carouselCont.querySelector('.next-btn');
     this.carouselFrame = this.carouselCont.querySelector('.carousel-frame');

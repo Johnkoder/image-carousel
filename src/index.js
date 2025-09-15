@@ -5,4 +5,8 @@ import Img3 from './asset/resource/img3.jpg';
 import Img4 from './asset/resource/img4.jpg';
 import Img5 from './asset/resource/img5.jpg';
 
-new Carousel([Img1, Img2, Img3, Img4, Img5]).init();
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel-cont').forEach((el) => {
+    new Carousel(el, [Img1, Img2, Img3, Img4, Img5]).init();
+  });
+});
