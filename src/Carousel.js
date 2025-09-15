@@ -7,7 +7,8 @@ export default class Carousel {
     this.carouselCont = document.querySelector('.carousel-cont');
     this.previousBtn = this.carouselCont.querySelector('.previous-btn');
     this.nextBtn = this.carouselCont.querySelector('.next-btn');
-    this.carouseFrame = this.carouselCont.querySelector('.carousel-frame');
+    this.carouselFrame = this.carouselCont.querySelector('.carousel-frame');
+    this.carouselImg = this.carouselFrame.querySelector('.carousel-img');
   }
 
   init() {
@@ -17,12 +18,12 @@ export default class Carousel {
 
   handlePreviousBtn = () => {
     const chosenImg = this.logic.getPreviousImg();
-    console.log(chosenImg);
+    this.carouselImg.src = chosenImg;
   };
 
   handleNextBtn = () => {
     const chosenImg = this.logic.getNextImg();
-    console.log(chosenImg);
+    this.carouselImg.src = chosenImg;
   };
 
   // helper
