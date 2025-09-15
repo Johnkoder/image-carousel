@@ -4,21 +4,19 @@ export default class CarouselLogic {
     this.selected = 0;
   }
 
-  next() {
+  getNextImg() {
     this.selected++;
     if (this.selected >= this.imageList.length) {
       this.selected = 0;
-      return this.selected;
     }
-    return this.selected;
+    return this.imageList[this.selected];
   }
 
-  previous() {
+  getPreviousImg() {
     this.selected--;
     if (this.selected < 0) {
       this.selected = this.imageList.length - 1;
-      return this.selected;
     }
-    return this.selected;
+    return this.imageList[this.selected];
   }
 }

@@ -16,11 +16,13 @@ export default class Carousel {
   }
 
   handlePreviousBtn = () => {
-    console.log(this.logic.previous());
+    const chosenImg = this.logic.getPreviousImg();
+    console.log(chosenImg);
   };
 
   handleNextBtn = () => {
-    console.log(this.logic.next());
+    const chosenImg = this.logic.getNextImg();
+    console.log(chosenImg);
   };
 
   // helper
