@@ -4,6 +4,10 @@ export default class CarouselLogic {
     this.selected = 0;
   }
 
+  get getImageList() {
+    return this.imageList;
+  }
+
   getNextImg() {
     this.selected++;
     if (this.selected >= this.imageList.length) {
@@ -22,5 +26,9 @@ export default class CarouselLogic {
 
   getInitialImg() {
     return this.imageList[0];
+  }
+  //TODO: do this
+  getChosenImg() {
+    return;
   }
 }

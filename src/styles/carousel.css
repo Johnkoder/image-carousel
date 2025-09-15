@@ -1,3 +1,9 @@
+.carousel-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .carousel-cont > :first-child {
   display: flex;
   align-items: center;
@@ -11,4 +17,21 @@
 .carousel-img {
   height: 200px;
   width: 300px;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: blue;
 }

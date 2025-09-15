@@ -9,10 +9,13 @@ export default class Carousel {
     this.nextBtn = this.carouselCont.querySelector('.next-btn');
     this.carouselFrame = this.carouselCont.querySelector('.carousel-frame');
     this.carouselImg = this.carouselFrame.querySelector('.carousel-img');
+
+    this.navDots = this.carouselCont.querySelector('.nav-dots');
   }
 
   init() {
     this.injectImageToFrame(this.logic.getInitialImg());
+    this.renderAllDots();
     this.handleEvent('click', this.previousBtn, this.handlePreviousBtn);
     this.handleEvent('click', this.nextBtn, this.handleNextBtn);
   }
@@ -25,6 +28,20 @@ export default class Carousel {
   handleNextBtn = () => {
     const chosenImg = this.logic.getNextImg();
     this.injectImageToFrame(chosenImg);
+  };
+
+  renderAllDots() {
+    this.logic.getImageList.forEach((_, i) => {
+      const newDot = document.createElement('span');
+      newDot.dataset.id = i;
+      newDot.className = 'dot';
+      this.handleEvent('click', newDot, this.handleDot);
+      this.navDots.append(newDot);
+    });
+  }
+
+  handleDot = () => {
+    console.log('HI!');
   };
 
   // helper
