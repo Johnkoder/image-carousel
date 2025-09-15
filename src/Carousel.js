@@ -12,18 +12,19 @@ export default class Carousel {
   }
 
   init() {
+    this.injectImageToFrame(this.logic.getInitialImg());
     this.handleEvent('click', this.previousBtn, this.handlePreviousBtn);
     this.handleEvent('click', this.nextBtn, this.handleNextBtn);
   }
 
   handlePreviousBtn = () => {
     const chosenImg = this.logic.getPreviousImg();
-    this.carouselImg.src = chosenImg;
+    this.injectImageToFrame(chosenImg);
   };
 
   handleNextBtn = () => {
     const chosenImg = this.logic.getNextImg();
-    this.carouselImg.src = chosenImg;
+    this.injectImageToFrame(chosenImg);
   };
 
   // helper
@@ -31,5 +32,9 @@ export default class Carousel {
     el.addEventListener(type, () => {
       callback();
     });
+  }
+
+  injectImageToFrame(chosenImg) {
+    this.carouselImg.src = chosenImg;
   }
 }

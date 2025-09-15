@@ -19,4 +19,8 @@ export default class CarouselLogic {
     }
     return this.imageList[this.selected];
   }
+
+  getInitialImg() {
+    return this.imageList[0];
+  }
 }

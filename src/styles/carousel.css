@@ -1,3 +1,14 @@
 .carousel-cont > :first-child {
   display: flex;
+  align-items: center;
+}
+
+.previous-btn,
+.next-btn {
+  cursor: pointer;
+}
+
+.carousel-img {
+  height: 200px;
+  width: 300px;
 }
